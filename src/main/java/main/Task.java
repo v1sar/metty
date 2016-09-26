@@ -1,11 +1,10 @@
 package main;
 
-//import http.Request;
-//import http.Response;
+import http.Request;
+import http.Response;
 
 import java.io.*;
 import java.net.Socket;
-import java.net.URLDecoder;
 import java.util.concurrent.RecursiveAction;
 
 /**
@@ -27,7 +26,7 @@ public class Task extends RecursiveAction {
     }
 
     @Override
-    protected void compute(){//CAS
+    protected void compute(){
         try {
             Request request = new Request();
             while (true) {
@@ -35,14 +34,11 @@ public class Task extends RecursiveAction {
                 if(buf == null || buf.trim().isEmpty()){
                     break;
                 }
-                //System.out.println(buf);
                 request.newHeader(buf);
             }
-            //System.out.println();
             Response response = new Response(request);
             response.writeResponse(out);
         }catch (IOException e){
-            //e.printStackTrace();
         }finally {
             closeAll();
         }
@@ -55,7 +51,6 @@ public class Task extends RecursiveAction {
             writer.close();
             socket.close();
         }catch (IOException e){
-            //e.printStackTrace();
         }
     }
 }

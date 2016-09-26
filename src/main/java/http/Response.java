@@ -1,5 +1,6 @@
 package http;
 
+import additional.*;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -13,10 +14,14 @@ import java.util.TimeZone;
 public class Response {
     private FileSystem fileSystem = null;
 
-    String server = null;//Информация о сервере
-    Long contentLength = null;//Размер страницы в байтах
-    String contentType = null;//Тип MIME страницы
-    String date = null;//Дата и время отправки сообщения
+    //Server info
+    String server = null;
+    //Размер страницы в байтах
+    Long contentLength = null;
+    //MIME type
+    String contentType = null;
+    //date/time
+    String date = null;
     String connection = null;
 
     private static final String HTTP_VERSION = "HTTP/1.1";
@@ -103,7 +108,6 @@ public class Response {
             }
             out.flush();
         } catch (FileNotFoundException e) {
-            //e.printStackTrace();
         }
 
     }

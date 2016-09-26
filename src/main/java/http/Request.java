@@ -20,7 +20,6 @@ public class Request {
             if(nameHeader.equals("HEAD")) method = "HEAD";
             if(nameHeader.equals("POST")) method = "POST";
             if(isMethod(nameHeader)) parseMethod(line);
-            //...
         }
     }
 
